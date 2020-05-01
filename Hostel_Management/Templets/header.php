@@ -8,12 +8,17 @@
 	
     <style type="text/css">
     	.brand{
-    		background: #cbb09c !important;
+    		background: #f6f578 !important;
     	}
 
     	.brand-text{
-    		color: #cbb09c !important;
+    		color: #f6d743 !important;
     	}
+
+		.brand-bag{
+    		color: #649d66 !important;
+
+		}
  		
  		form{
  			max-width: 460px;
@@ -22,20 +27,28 @@
 
  		}
 
+
+		 	/* Color Pallet
+			 #f6f578
+			 #f6d743
+			 #649d66
+			 #06623b */
+
+
     </style>
 
 
 
 </head>
-<body class="grey lighten-4">
+<body class="green lighten-5">
 	<nav class="white z-depth-0">
 		<div class="container">
 			
-			<a href="#" class="brand-logo brand-text"> Hostle </a>
+			<a href="/index.php" class="brand-logo brand-text"> Hostle </a>
 
 			<ul id="nav-mobile" class="right hide-on-small-and-down" >
 				
-				<li><a href="#" class="btn brand z-depth-0"> home page </a></li>
+				<li><a href="/index.php" class="btn brand z-depth-0"> home page </a></li>
 
 			</ul>
 
