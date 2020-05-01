@@ -3,10 +3,20 @@
 
 //Variable assignment and the query processing
 
+
+
 $errors = [ 'submit' => '' ,'visitor' => '','student name' => '','roll' => '' ,'purpose' => '' ];
 
 
 if (isset($_GET['submit'])){
+
+	$vis = $stu_nam = $roll = $purpose = '';
+
+	$vis = htmlspecialchars($_GET['visitor_name']);
+	$stu_nam = htmlspecialchars($_GET['student_name']);
+	$roll = htmlspecialchars($_GET['Student_ID']);
+	$purpose =  htmlspecialchars($_GET['Purpose']);
+
 
 //Error Checking
 
@@ -133,18 +143,18 @@ else{echo " ";}
 		
 		<label>Name:</label>
 		<?php Error($errors['visitor']); ?>
-		<input type="text" name="visitor_name" placeholder="your name">
+		<input type="text" name="visitor_name" placeholder="your name" value='<?PHP echo  $vis ;?>'>
 
 		<label>Student Name:</label>
 		<?php Error($errors['student name']); ?>
-		<input type="text" name="student_name" placeholder="student name">
+		<input type="text" name="student_name" placeholder="student name" value="<?PHP echo $stu_nam;?>">
 
 		<label>Student roll number:</label>
 		<?php Error($errors['roll']); ?>
-		<input type="text" name="Student_ID" placeholder="19BCE1234">
+		<input type="text" name="Student_ID" placeholder="19BCE1234" value="<?PHP echo $roll;?>">
 
 		<label>Purpose of visit:</label>
-		<input type="text" name="Purpose" maxlength="200" placeholder="Why are you here!!!!">
+		<input type="text" name="Purpose" maxlength="200" placeholder="Why are you here!!!!" value="<?PHP echo $purpose;?>">
 
 			<div class="center">
 				

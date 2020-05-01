@@ -4,11 +4,20 @@
 //Variable assignment and the query processing
 
 $errors = [ 'submit' => '' ,'id' => '','First name' => '','Last name' => '','Room' => '' ,'Block' => '' ];
-
+$id = $first_name = $last_name = $room = $block ="";
 
 if (isset($_GET['submit'])){
 
 //Error Checking
+
+$id = $first_name = $last_name = $room = $block ="";
+$id = htmlspecialchars($_GET['Student_ID']);
+$first_name = htmlspecialchars($_GET['First_name']);
+$last_name = htmlspecialchars($_GET['Last_name']);
+$room =  htmlspecialchars($_GET['room']);
+$block =   htmlspecialchars($_GET['Block']);  
+
+
 
 	$flag = true;
 	if(empty($_GET['Student_ID']))
@@ -143,23 +152,23 @@ else{echo " ";}
 		
 		<label>Student ID:</label>
 		<?php Error($errors['id']); ?>
-		<input type="text" name="Student_ID" placeholder="19BCE1234" maxlength="9">
+		<input type="text" name="Student_ID" placeholder="19BCE1234" maxlength="9" value='<?PHP echo  $id ;?>'>
 
 		<label>First Name:</label>
 		<?php Error($errors['First name']); ?>
-		<input type="text" name="First_name" placeholder="First name">
+		<input type="text" name="First_name" placeholder="First name" value='<?PHP echo  $first_name ;?>'>
 
 		<label>Last Name:</label>
 		<?php Error($errors['Last name']); ?>
-		<input type="text" name="Last_name" placeholder="Last name">
+		<input type="text" name="Last_name" placeholder="Last name" value='<?PHP echo  $last_name ;?>'>
 
 		<label>Room Number:</label>
 		<?php Error($errors['Room']); ?>
-		<input type="text" name="room" placeholder="1415" maxlength="4">
+		<input type="text" name="room" placeholder="1415" maxlength="4" value='<?PHP echo  $room ;?>'>
 
 		<label>Hostle Block:</label>
 		<?php Error($errors['Block']); ?>
-		<input type="text" name="Block" maxlength="1" placeholder="Why are you here!!!!">
+		<input type="text" name="Block" maxlength="1" placeholder="B" value='<?PHP echo  $block ;?>'>
 
 			<div class="center">
 				
