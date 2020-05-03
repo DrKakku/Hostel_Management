@@ -26,7 +26,7 @@ $block =   htmlspecialchars($_GET['Block']);
 		$flag = false;
 	}
 
-	if(!preg_match('/[1-9][1-9][a-zA-Z][a-zA-Z][a-zA-Z][1-9][1-9][1-9][1-9]/' ,$_GET['Student_ID']))
+	if(!preg_match('/[0-9][0-9][a-zA-Z][a-zA-Z][a-zA-Z][0-9][0-9][0-9][0-9]/' ,$_GET['Student_ID']))
 	{
 		$errors['id'] = "You have entered an invalid student roll number please enter in the followling format <br> 19BCE1111";
 		$flag = false;
@@ -117,7 +117,7 @@ else
 	$errors['submit'] = "Error: " . $sql . "<br>" . mysqli_error($conn); 
 }
 	
-	//header("Location: http://localhost/tuts/Visitors.php/");
+header('Location: /tuts/Students.php');
 
 }
 }
@@ -143,32 +143,32 @@ else{echo " ";}
 
 <?php require('Templets\header.php') ?>
 
-<section class="container grey-text" >
+<section class="container grey-text darken-5 " >
 	
 	<h4 class="center">Students regestration</h4>
 
-	<form class="white" action="/tuts/Students.php/" meathod="POST">
+	<form class="light-green lighten-4 stripped" action="/tuts/Students.php/" meathod="POST">
 		
 		
 		<label>Student ID:</label>
 		<?php Error($errors['id']); ?>
-		<input type="text" name="Student_ID" placeholder="19BCE1234" maxlength="9" value='<?PHP echo  $id ;?>'>
+		<input onkeyup="this.value = this.value.toUpperCase()" type="text" name="Student_ID" placeholder="19BCE1234" maxlength="9" value='<?PHP echo  $id ;?>'>
 
 		<label>First Name:</label>
 		<?php Error($errors['First name']); ?>
-		<input type="text" name="First_name" placeholder="First name" value='<?PHP echo  $first_name ;?>'>
+		<input type="text" name="First_name" placeholder="First name" value='<?PHP echo  $first_name ;?>' onkeyup="this.value = this.value.toUpperCase()">
 
 		<label>Last Name:</label>
 		<?php Error($errors['Last name']); ?>
-		<input type="text" name="Last_name" placeholder="Last name" value='<?PHP echo  $last_name ;?>'>
+		<input type="text" name="Last_name" placeholder="Last name" value='<?PHP echo  $last_name ;?>' onkeyup="this.value = this.value.toUpperCase()">
 
 		<label>Room Number:</label>
 		<?php Error($errors['Room']); ?>
-		<input type="text" name="room" placeholder="1415" maxlength="4" value='<?PHP echo  $room ;?>'>
+		<input type="text" name="room" placeholder="1415" maxlength="4" value='<?PHP echo  $room ;?>' onkeyup="this.value = this.value.toUpperCase()">
 
 		<label>Hostle Block:</label>
 		<?php Error($errors['Block']); ?>
-		<input type="text" name="Block" maxlength="1" placeholder="B" value='<?PHP echo  $block ;?>'>
+		<input type="text" name="Block" maxlength="1" placeholder="B" value='<?PHP echo  $block ;?>' onkeyup="this.value = this.value.toUpperCase()">
 
 			<div class="center">
 				

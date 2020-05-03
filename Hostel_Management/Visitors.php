@@ -6,7 +6,7 @@
 
 
 $errors = [ 'submit' => '' ,'visitor' => '','student name' => '','roll' => '' ,'purpose' => '' ];
-
+$vis = $stu_nam = $roll = $purpose = '';
 
 if (isset($_GET['submit'])){
 
@@ -62,7 +62,6 @@ $stu_nam = htmlspecialchars($_GET['student_name']);
 $roll = htmlspecialchars($_GET['Student_ID']);
 $purpose =  htmlspecialchars($_GET['Purpose']);
 $time =   date("Y-m-d H:i:s");                  //'FROM_UNIXTIME (1231634282) ';
-echo $time ;
 //server settings 
 //make changes acording to your own server cnfiguration
 
@@ -90,9 +89,9 @@ if ( !$conn )
 } 
 //Sql query for entring the values to the database
 
-$sql = "INSERT INTO VISITORS (Visitor_Name,Visit_Date,Purpose) values ('$vis','$time','$purpose'); ";
-
-
+$sql = "INSERT INTO VISITORS (Visitor_Name,Purpose) values ('$vis','$purpose'); ";
+//,Visit_Date
+//'$time'
 if (mysqli_query($conn, $sql)) { 
     $errors['submit'] = "New record created successfully"; 
 } 
@@ -101,7 +100,8 @@ else
 	$errors['submit'] = "Error: " . $sql . "<br>" . mysqli_error($conn); 
 }
 	
-	//header("Location: http://localhost/tuts/Visitors.php/");
+		header('Location: /tuts/Visitors.php');
+	
 
 }
 }
@@ -136,27 +136,28 @@ else{echo " ";}
 <section class="container grey-text" >
 	
 	<h4 class="center">Visitor Information</h4>
-		<!-- <?php //Error($errors['submit']); ?> -->
+		<?php Error($errors['submit']); ?> 
 
-	<form class="white" action="/tuts/Visitors.php/" meathod="GET">
+	<form class="light-green lighten-4   " action="/tuts/Visitors.php/" meathod="GET">
 		
 		
-		<label>Name:</label>
+		
 		<?php Error($errors['visitor']); ?>
-		<input type="text" name="visitor_name" placeholder="your name" value='<?PHP echo  $vis ;?>'>
+		<input type="text" name="visitor_name" placeholder="your name" value='<?PHP echo  $vis ;?>' onkeyup="this.value = this.value.toUpperCase()">
+<label>Name:</label>
 
-		<label>Student Name:</label>
 		<?php Error($errors['student name']); ?>
-		<input type="text" name="student_name" placeholder="student name" value="<?PHP echo $stu_nam;?>">
-
-		<label>Student roll number:</label>
+		<input type="text" name="student_name" placeholder="student name" value="<?PHP echo $stu_nam;?>" onkeyup="this.value = this.value.toUpperCase()">
+		<label>Student Name:</label>
+<br>
 		<?php Error($errors['roll']); ?>
-		<input type="text" name="Student_ID" placeholder="19BCE1234" value="<?PHP echo $roll;?>">
-
-		<label>Purpose of visit:</label>
+		<input type="text" name="Student_ID" placeholder="19BCE1234" value="<?PHP echo $roll;?>" onkeyup="this.value = this.value.toUpperCase()">
+		<label>Student roll number:</label>
+		<br>
 		<input type="text" name="Purpose" maxlength="200" placeholder="Why are you here!!!!" value="<?PHP echo $purpose;?>">
-
-			<div class="center">
+		<label>Purpose of visit:</label>
+		<br>	
+		<div class="center">
 				
 				<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
 

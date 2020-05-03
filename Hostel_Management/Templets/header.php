@@ -6,13 +6,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <style type="text/css">
     	.brand{
-    		background: #f6f578 !important;
+    		background: #455a64 !important;
     	}
 
     	.brand-text{
-    		color: #f6d743 !important;
+    		color: #455a64 !important;
     	}
 
 		.brand-bag{
@@ -40,15 +44,15 @@
 
 
 </head>
-<body class="green lighten-5">
-	<nav class="white z-depth-0">
+<body class="light-green lighten-4">
+	<nav class="light-green lighten-3 z-depth-0">
 		<div class="container">
 			
-			<a href="/index.php" class="brand-logo brand-text"> Hostle </a>
+			<a href="/index.php" class="brand-logo brand-text"> HOSTEL </a>
 
 			<ul id="nav-mobile" class="right hide-on-small-and-down" >
 				
-				<li><a href="/index.php" class="btn brand z-depth-0"> home page </a></li>
+				<li><a href="/index.php" class="btn brand z-depth-0"> H U B </a></li>
 
 			</ul>
 

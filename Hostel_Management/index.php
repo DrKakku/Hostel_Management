@@ -1,3 +1,45 @@
+<?php 
+//server settings 
+	//make changes acording to your own server cnfiguration
+
+//Host
+$host = 'localhost';
+
+//user
+$user = 'root';
+
+//Password
+
+$pass = '' ; //as there is no password for my user i will leave an empty string
+
+//dataBase name
+$database = 'hostle_management';
+
+
+//Connection setteing
+
+$conn = mysqli_connect($host,$user,$pass,$database);
+
+if ( !$conn ) 
+{ 
+    die("Connection failed: " . mysqli_connect_error()); 
+} 
+
+//Sql query for entring the values to the database
+
+$sql = "select * from student";
+
+
+$result = mysqli_query($conn,$sql);
+
+$students = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
  <html>
 <title>gg</title>
@@ -19,11 +61,13 @@
 
             
             <li>
-        <a class="brand-logo brand-text" href="Students.php">For Students page</a> 
+                <a class="brand-logo brand-text" href="Students.php">For Students page</a>
             </li>
 
+            <li>
+                <a class="brand-logo brand-text" href="Student_records.php">For Students Records</a>
+            </li>
 
-        </ul>
     </div>
 
 
