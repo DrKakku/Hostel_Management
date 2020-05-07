@@ -4,12 +4,11 @@
 
 //Function for ordered sorting
 
-function Sql_sort ($var,$toggle = true){
+function Sql_sort ($var,$toggle = "of"){
  
     $order_state = "";
-    $order_state =  $toggle ? "asc":"desc";
-    $toggle = ($toggle == true) ? false:true;
-    $sql = "select * from student order by $var asc; ";
+    $order_state =  ($toggle == "of" )? "asc":"desc";
+    $sql = "select * from student order by $var $order_state; ";
     
     return $sql ;
     
@@ -46,17 +45,29 @@ if ( !$conn )
 } 
 
 //Sql query for entring the values to the database
-if (!empty($_GET)){
+if (isset($_GET))
+{
   if(!empty($_GET['Group'])){
-$sql = Sql_sort($_GET['Group']);
+
+
+
+    $state = (empty($_GET['type'])) ? "of":"on" ;
+    $sql = Sql_sort($_GET['Group'],$state);
+
   }
+
   else{
+
     $sql = "select * from student; ";
+
   }
+
 }
 else{
   $sql = "select * from student; ";
 }
+
+
 $result = mysqli_query($conn,$sql);
 
 $students = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -110,6 +121,14 @@ mysqli_close($conn);
     <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group"value="Room_Number" > <span>Room Number </span></label></th>
     
     <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group"value="Block" > <span >Hostel Block </span></label></th>
+    <div class="switch brand-text">
+    <label class = 'brand-text'>
+      Ascending
+      <input type="checkbox" name="type">
+      <span class="lever"></span>
+      Descending
+    </label>
+  </div>
     <input type="submit" name="sort" value="sort" class="btn  brand z-depth-0">
   </form>
 </tr>
