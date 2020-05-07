@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 
 
 //Variable assignment and the query processing
@@ -127,46 +127,51 @@ else{echo " ";}
 
 
 <!DOCTYPE html>
- <html>
+<html>
 <title>Visitors</title>
 
 
 <?php require('Templets\header.php') ?>
 
-<section class="container grey-text" >
-	
+<section class="container grey-text">
+
 	<h4 class="center">Visitor Information</h4>
-		<?php Error($errors['submit']); ?> 
+	<?php Error($errors['submit']); ?>
 
 	<form class="light-green lighten-4   " action="/tuts/Visitors.php/" meathod="GET">
-		
-		
-		
+
+
+
 		<?php Error($errors['visitor']); ?>
-		<input type="text" name="visitor_name" placeholder="your name" value='<?PHP echo  $vis ;?>' onkeyup="this.value = this.value.toUpperCase()">
-<label>Name:</label>
+		<input type="text" name="visitor_name" placeholder="your name" value='<?PHP echo  $vis ;?>'
+			onkeyup="this.value = this.value.toUpperCase()">
+		<label>Name:</label>
 
 		<?php Error($errors['student name']); ?>
-		<input type="text" name="student_name" placeholder="student name" value="<?PHP echo $stu_nam;?>" onkeyup="this.value = this.value.toUpperCase()">
+		<input type="text" name="student_name" placeholder="student name" value="<?PHP echo $stu_nam;?>"
+			onkeyup="this.value = this.value.toUpperCase()">
 		<label>Student Name:</label>
-<br>
+		<br>
 		<?php Error($errors['roll']); ?>
-		<input type="text" name="Student_ID" placeholder="19BCE1234" value="<?PHP echo $roll;?>" onkeyup="this.value = this.value.toUpperCase()">
+		<input type="text" name="Student_ID" placeholder="19BCE1234" value="<?PHP echo $roll;?>"
+			onkeyup="this.value = this.value.toUpperCase()">
 		<label>Student roll number:</label>
 		<br>
-		<input type="text" name="Purpose" maxlength="200" placeholder="Why are you here!!!!" value="<?PHP echo $purpose;?>">
+		<input type="text" name="Purpose" maxlength="200" placeholder="Why are you here!!!!"
+			value="<?PHP echo $purpose;?>">
 		<label>Purpose of visit:</label>
-		<br>	
+		<br>
 		<div class="center">
-				
-				<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
 
-			</div>
+			<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
+
+		</div>
 	</form>
 </section>
 
 
 
 
-<?php require('Templets/Footer.php'); ?> 
+<?php require('Templets/Footer.php'); ?>
+
 </html>

@@ -1,5 +1,24 @@
 
 <?php 
+
+
+//Function for ordered sorting
+
+function Sql_sort ($var,$toggle = true){
+ 
+    $order_state = "";
+    $order_state =  $toggle ? "asc":"desc";
+    $toggle = ($toggle == true) ? false:true;
+    $sql = "select * from student order by $var asc; ";
+    
+    return $sql ;
+    
+}
+
+
+
+
+
 //server settings 
 	//make changes acording to your own server cnfiguration
 
@@ -27,10 +46,17 @@ if ( !$conn )
 } 
 
 //Sql query for entring the values to the database
-
-$sql = "select * from student order by Student_ID desc; ";
-
-
+if (!empty($_GET)){
+  if(!empty($_GET['Group'])){
+$sql = Sql_sort($_GET['Group']);
+  }
+  else{
+    $sql = "select * from student; ";
+  }
+}
+else{
+  $sql = "select * from student; ";
+}
 $result = mysqli_query($conn,$sql);
 
 $students = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -40,6 +66,7 @@ mysqli_free_result($result);
 
 //Close Connection
 mysqli_close($conn);
+
 
 ?>
 
@@ -57,9 +84,7 @@ mysqli_close($conn);
 
 <script>
 
-$(document).ready(function(){
-    $('select').formSelect();
-  });
+
 
 </script>
 
@@ -71,15 +96,25 @@ $(document).ready(function(){
 
     <div class="contanier">
 <div class="col 10 offset-s1">
-<table class=" brand-text striped highlight light-green lighten-3 responsive-table">
-
+<table class=" brand-text  striped highlight light-green lighten-3">
+<thead>
 <tr class="centered">
-    <th>Student Id</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Room Number</th>
-    <th>Hostel Block</th>
+  <form method="GET" class=" brand-text  " action="/tuts/Student_records.php/" >
+    
+    <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group" value="Student_ID" > <span> Student Id </span> </label></th>
+    
+    <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group" value="First_Name"> <span>First Name </span></label></th>
+    
+    <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group" value="Last_Name"> <span>Last Name </span></label></th>
+    
+    <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group"value="Room_Number" > <span>Room Number </span></label></th>
+    
+    <th><label class=" brand-text  "><input class="with-gap" type="radio" name="Group"value="Block" > <span >Hostel Block </span></label></th>
+    <input type="submit" name="sort" value="sort" class="btn  brand z-depth-0">
+  </form>
 </tr>
+</thead>
+<tbody></tbody>
 <?php foreach($students as $stud){ 
         echo "<tr> 
         <td>".$stud['Student_ID']."</td>
@@ -88,34 +123,12 @@ $(document).ready(function(){
         <td>".$stud['Room_Number']."</td>
         <td>".$stud['Block']."</td>
         </tr>";}?> 
-
+</tbody>
     </table>
     </div>
 </div>
 
 
-
-<div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-  </div>
-
-
-<!-- <form class="white ignore" action="/tuts/Student_records.php">
-  <label for="cars">Choose a car:</label>
-  <select id="cars" name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
-  <input type="submit">
-</form> -->
 
 
     <?php require('Templets\Footer.php'); ?>

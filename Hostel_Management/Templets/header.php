@@ -51,7 +51,7 @@
 			<a href="/index.php" class="brand-logo brand-text"> HOSTEL </a>
 
 			<ul id="nav-mobile" class="right hide-on-small-and-down" >
-				
+			<li><a href="https://github.com/DrKakku" class="btn brand z-depth-0"> Git Hub </a></li>
 				<li><a href="/index.php" class="btn brand z-depth-0"> H U B </a></li>
 
 			</ul>
