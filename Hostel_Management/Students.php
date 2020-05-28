@@ -117,7 +117,7 @@ else
 	$errors['submit'] = "Error: " . $sql . "<br>" . mysqli_error($conn); 
 }
 	
-header('Location: /tuts/Students.php');
+header('Location: /Hostel_Management/Students.php');
 
 }
 }
@@ -138,7 +138,7 @@ else{echo " ";}
 
 <!DOCTYPE html>
  <html>
-<title>Visitors</title>
+<title>Student regestration</title>
 
 
 <?php require('Templets\header.php') ?>
@@ -147,7 +147,7 @@ else{echo " ";}
 	
 	<h4 class="center">Students regestration</h4>
 
-	<form class="light-green lighten-4 stripped" action="/tuts/Students.php/" meathod="POST">
+	<form class="light-green lighten-4 stripped" action="/Hostel_Management/Students.php/" meathod="POST">
 		
 		
 		<label>Student ID:</label>

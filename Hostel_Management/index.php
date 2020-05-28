@@ -42,7 +42,7 @@ $students = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 <!DOCTYPE html>
  <html>
-<title>gg</title>
+<title>Hostel management sys</title>
  <?php require('Templets/header.php'); ?>
 
 
@@ -56,7 +56,7 @@ $students = mysqli_fetch_all($result,MYSQLI_ASSOC);
     <div class=" center z-depth-0 brand-text">
         <ul>
             <li>
-        <a class="brand-logo brand-text" href="Visitors.php">For Visitors page</a> 
+        <a class="brand-logo brand-text" href="Visitors/Student_check.php">For Visitors page</a> 
             </li>
 
             
