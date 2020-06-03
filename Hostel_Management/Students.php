@@ -3,19 +3,20 @@
 
 //Variable assignment and the query processing
 
-$errors = [ 'submit' => '' ,'id' => '','First name' => '','Last name' => '','Room' => '' ,'Block' => '' ];
-$id = $first_name = $last_name = $room = $block ="";
+$errors = [ 'submit' => '' ,'id' => '','First name' => '','Last name' => '','Room' => '' ,'Block' => '','type' => '' ];
+$id = $type = $first_name = $last_name = $room = $block ="";
 
 if (isset($_GET['submit'])){
 
 //Error Checking
 
-$id = $first_name = $last_name = $room = $block ="";
+$id = $type = $first_name = $last_name = $room = $block ="";
 $id = htmlspecialchars($_GET['Student_ID']);
 $first_name = htmlspecialchars($_GET['First_name']);
 $last_name = htmlspecialchars($_GET['Last_name']);
 $room =  htmlspecialchars($_GET['room']);
 $block =   htmlspecialchars($_GET['Block']);  
+$type =   htmlspecialchars($_GET['type']);  
 
 
 
@@ -51,6 +52,7 @@ $block =   htmlspecialchars($_GET['Block']);
 		$flag = false;
 	}
 
+
 	if(!preg_match('/[0-9]{2,4}/' ,$_GET['room']))
 	{
 		$errors['Room'] = "Please Enter a valid Input Nospecial characters are allowed.";
@@ -62,11 +64,30 @@ $block =   htmlspecialchars($_GET['Block']);
 		$errors['Block'] = "Please enter the nessary details";
 		$flag = false;
 	}
+
+
 	if(!preg_match('/[a-zA-Z]/' ,$_GET['Block']))
 	{
 		$errors['Block'] = "You have entered an invalid student roll number please enter in the followling format <br> 19BCE1111";
 		$flag = false;
 	}
+
+
+
+	if(empty($_GET['type']))
+	{
+		$errors['type'] = "Please enter the nessary details";
+		$flag = false;
+	}
+
+
+	if(!preg_match('/[0-9][aAnN][aAcC]+/' ,$_GET['type']))
+	{
+		$errors['type'] = "You have entered an invalid Room type format please enter in the followling format <br> 4AC  or 3NAC";
+		$flag = false;
+	}
+
+
 
 if($flag == true ){
 
@@ -75,8 +96,7 @@ $first_name = htmlspecialchars($_GET['First_name']);
 $last_name = htmlspecialchars($_GET['Last_name']);
 $room =  htmlspecialchars($_GET['room']);
 $block =   htmlspecialchars($_GET['Block']);  
-
-//if(!empty($id) || !empty($first_name) ||  !empty($last_name) ||  !empty($room)  ||   !empty($block)  ){
+$type =   htmlspecialchars($_GET['type']);  
 	
 //server settings 
 	//make changes acording to your own server cnfiguration
@@ -106,7 +126,7 @@ if ( !$conn )
 
 //Sql query for entring the values to the database
 
-$sql = "INSERT INTO student values ('$id','$first_name','$last_name','$room','$block'); ";
+$sql = "INSERT INTO student values ('$id','$first_name','$last_name','$room','$block','$type'); ";
 
 
 if (mysqli_query($conn, $sql)) { 
@@ -117,7 +137,7 @@ else
 	$errors['submit'] = "Error: " . $sql . "<br>" . mysqli_error($conn); 
 }
 	
-header('Location: /Hostel_Management/Students.php');
+//header('Location: /Hostel_Management/Students.php');
 
 }
 }
@@ -149,6 +169,7 @@ else{echo " ";}
 
 	<form class="light-green lighten-4 stripped" action="/Hostel_Management/Students.php/" meathod="POST">
 		
+	<?php Error($errors['submit']); ?>
 		
 		<label>Student ID:</label>
 		<?php Error($errors['id']); ?>
@@ -169,6 +190,14 @@ else{echo " ";}
 		<label>Hostle Block:</label>
 		<?php Error($errors['Block']); ?>
 		<input type="text" name="Block" maxlength="1" placeholder="B" value='<?PHP echo  $block ;?>' onkeyup="this.value = this.value.toUpperCase()">
+
+
+		<label>Room Type:</label>
+		<?php Error($errors['type']); ?>
+		<input type="text" name="type" maxlength="4" placeholder="3AC // 2NAC" value='<?PHP echo  $type ;?>' onkeyup="this.value = this.value.toUpperCase()">
+
+
+
 
 			<div class="center">
 				

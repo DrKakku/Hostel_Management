@@ -54,25 +54,109 @@ $students = mysqli_fetch_all($result,MYSQLI_ASSOC);
     <br>
     </div>
     <div class=" center z-depth-0 brand-text">
+    <h5 class="center">
+        Record entry
+    </h5>
         <ul>
             <li>
-        <a class="brand-logo brand-text" href="Visitors/Student_check.php">For Visitors page</a> 
+        <a class="brand-logo brand-text" href="Visitors/Student_check.php">For Visitors regestration</a> 
             </li>
 
+            <br>
             
             <li>
-                <a class="brand-logo brand-text" href="Students.php">For Students page</a>
+                <a class="brand-logo brand-text" href="Students.php">For Students regestration</a>
             </li>
 
+
+            <br>
+
             <li>
-                <a class="brand-logo brand-text" href="Student_records.php">For Students Records</a>
+                <a class="brand-logo brand-text" href="Staff.php">For Staff Regestration</a>
             </li>
+
+            <br>
+
+            <li>
+                <a class="brand-logo brand-text" href="Leave/Student_check.php">For Leave Request</a>
+            </li>
+
+            <br>
+
+            <li>
+                <a class="brand-logo brand-text" href="greviences/Student_check.php">For Grevience Request</a>
+            </li>
+
+
+            <br>
+
+            
+
+
+          </ul>
+
+          <h5 class="center">
+        Record examination
+    </h5>
+    <ul>
+    
+ 
+
+<li>
+    <a class="brand-logo brand-text" href="Student_records.php">For Students Records</a>
+</li>
+
+<br>
+    
+
+ 
+
+<li>
+    <a class="brand-logo brand-text" href="Grievences_record.php">For Grievences Records</a>
+</li>
+
+<br>
+ 
+
+<li>
+    <a class="brand-logo brand-text" href="Staff_record.php">For Staff Records</a>
+</li>
+
+<br>
+
+
+ 
+
+<li>
+    <a class="brand-logo brand-text" href="Leave_records.php">For Leave Records</a>
+</li>
+
+<br>
+
+
+ 
+
+<li>
+    <a class="brand-logo brand-text" href="visitors_records.php">For Visitors Records</a>
+</li>
+
+<br>
+
+
+
+
+    </ul>
+
+
 
     </div>
 
 
+
+
 </section>
 
- 
+
+
  <?php require('Templets/Footer.php'); ?>
  </html>

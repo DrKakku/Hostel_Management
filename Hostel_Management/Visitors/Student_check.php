@@ -25,7 +25,7 @@ if (isset($_GET['submit'])){
 		$errors['roll'] = "Please enter the nessary details";
 		$flag = 2;
 	}
-	if(!preg_match('/[1-9][1-9][a-zA-Z][a-zA-Z][a-zA-Z][1-9][1-9][1-9][1-9]/' ,$_GET['Student_ID']))
+	if(!preg_match('/[0-9][0-9][a-zA-Z][a-zA-Z][a-zA-Z][0-9][0-9][0-9][0-9]/' ,$_GET['Student_ID']))
 	{
 		$errors['roll'] = "You have entered an invalid student roll number please enter in the followling format <br> 19BCE1111";
 		$flag = 2;

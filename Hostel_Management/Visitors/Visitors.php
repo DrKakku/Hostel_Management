@@ -76,6 +76,9 @@ if ( !$conn )
 
 //entring values into visitor table
 
+
+
+
 $sql = "INSERT INTO VISITORS (Visitor_Name,Purpose,Student_ID) values ('$vis','$purpose','$roll'); ";
 if (mysqli_query($conn, $sql)) { 
     $errors['submit'] = "New record created successfully"; 
@@ -107,6 +110,7 @@ else{echo " ";}
 <?php require('D:\Work\softwares\Xampp\htdocs\Hostel_Management\Templets\header.php') ?>
 
 <section class="container grey-text">
+
 
 	<h4 class="center">Visitor Information</h4>
 	<?php Error($errors['submit']); ?>

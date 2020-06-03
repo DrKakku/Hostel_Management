@@ -10,6 +10,20 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+
+	<script src="jquery-3.5.1.min.js"></script>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		        
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+
+
     <style type="text/css">
     	.brand{
     		background: #455a64 !important;
@@ -21,6 +35,10 @@
 
 		.brand-bag{
     		color: #649d66 !important;
+
+		}
+		.under{
+			text-decoration: underline !important;
 
 		}
  		
